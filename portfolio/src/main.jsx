@@ -5,7 +5,6 @@ import Homepage from './Homepage.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-
     <Homepage />
   </StrictMode>,
 )
