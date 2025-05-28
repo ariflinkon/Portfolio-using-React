@@ -15,34 +15,33 @@ const Navbar = () => {
   ]
 
   return (
-    <header className="w-full h-24 bg-white shadow-md flex justify-center z-50 relative">
-      <div className="px-[150px] py-[10px] w-full max-w-[1920px] px-8 flex items-center justify-between">
+    <header className="w-full bg-white shadow-md fixed top-0 left-0 z-50">
+      <div className="max-w-[1920px] mx-auto flex items-center justify-between px-6 sm:px-10 lg:px-[150px] py-4 h-24">
         {/* Logo */}
-        <div className="text-3xl font-bold text-purple-700">AJL</div>
+        <div className="text-3xl font-bold text-purple-700">Brooklyn</div>
 
-        {/* Right Section: Menu + Contact */}
-        <div className="hidden lg:flex items-center gap-4">
-          <nav className="flex items-center gap-0">
+        {/* Desktop Menu */}
+        <div className="hidden lg:flex items-center gap-6">
+          <nav className="flex items-center gap-2">
             {menuItems.map((item) => (
               <Link
                 key={item.name}
                 to={item.path}
-                className="text-lg text-gray-700 hover:text-purple-700 transition px-4 py-2"
+                className="text-base text-gray-700 hover:text-purple-700 transition px-3 py-2"
               >
                 {item.name}
               </Link>
             ))}
           </nav>
-
           <Link
             to="/contact"
-            className="bg-purple-700 text-white px-6 py-2 rounded-full text-lg font-medium hover:bg-purple-800 transition"
+            className="bg-purple-700 text-white px-6 py-2 rounded-full text-base font-medium hover:bg-purple-800 transition"
           >
             Contact
           </Link>
         </div>
 
-        {/* Mobile Menu Toggle */}
+        {/* Mobile Menu Button */}
         <div className="lg:hidden">
           <button onClick={() => setIsOpen(!isOpen)} className="text-purple-700">
             {isOpen ? <X size={28} /> : <Menu size={28} />}
@@ -52,14 +51,14 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="lg:hidden absolute top-24 left-0 w-full bg-white shadow-md z-40">
+        <div className="lg:hidden w-full bg-white shadow-md absolute top-24 left-0 z-40">
           <nav className="flex flex-col items-center gap-4 py-4">
             {menuItems.map((item) => (
               <Link
                 key={item.name}
                 to={item.path}
                 onClick={() => setIsOpen(false)}
-                className="text-lg text-gray-700 hover:text-purple-700 transition"
+                className="text-base text-gray-700 hover:text-purple-700 transition"
               >
                 {item.name}
               </Link>
@@ -67,7 +66,7 @@ const Navbar = () => {
             <Link
               to="/contact"
               onClick={() => setIsOpen(false)}
-              className="bg-purple-700 text-white px-6 py-2 rounded-full text-lg font-medium hover:bg-purple-800 transition"
+              className="bg-purple-700 text-white px-6 py-2 rounded-full text-base font-medium hover:bg-purple-800 transition"
             >
               Contact
             </Link>
